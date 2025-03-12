@@ -1,3 +1,4 @@
+package DTO;
 import java.util.Objects;
 public class NhaXuatBanDTO {
     private String manxb;
