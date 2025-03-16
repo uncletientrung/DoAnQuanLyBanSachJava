@@ -1,16 +1,15 @@
 package DTO;
 import java.sql.Timestamp;
-import DTO.PhieuDTO;
 
-    public class PhieuXuatDTO extends PhieuDTO{
+public class PhieuXuatDTO extends PhieuDTO {
     private int makh;
 
     public PhieuXuatDTO(int makh) {
         this.makh = makh;
     }
 
-    public PhieuXuatDTO(int makh, int maphieu, int manguoitao, Timestamp thoigiantao, long tongTien, int trangthai) {
-        super(maphieu, manguoitao, thoigiantao, tongTien, trangthai);
+    public PhieuXuatDTO(int makh, int maphieu, String manv, Timestamp thoigiantao, long tongTien, int trangthai) {
+        super(maphieu, manv, thoigiantao, tongTien, trangthai);
         this.makh = makh;
     }
 
@@ -34,10 +33,7 @@ import DTO.PhieuDTO;
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
         final PhieuXuatDTO other = (PhieuXuatDTO) obj;
@@ -46,10 +42,6 @@ import DTO.PhieuDTO;
 
     @Override
     public String toString() {
-        return "PhieuXuatDTO{" + "makh=" + makh + '}' +super.toString();
+        return "PhieuXuatDTO{" + "makh=" + makh + '}' + super.toString();
     }
-
-    
 }
-
-

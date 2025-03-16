@@ -1,21 +1,21 @@
 package DTO;
 import java.util.Objects;
 public class NhaXuatBanDTO {
-    private String manxb;
+    private int manxb;
     private String tennxb;
     private String diachinxb;
     private String sdt;
     private String email;
 
     public NhaXuatBanDTO(){}
-    public NhaXuatBanDTO(String manxb,String tennxb,String diachinxb, String sdt, String email){
-        this.manxb=manxb;
-        this.tennxb=tennxb;
-        this.diachinxb=diachinxb;
-        this.sdt=sdt;
-        this.email=email;
+    public NhaXuatBanDTO(int manxb, String tennxb, String diachinxb, String sdt, String email){
+        this.manxb = manxb;
+        this.tennxb = tennxb;
+        this.diachinxb = diachinxb;
+        this.sdt = sdt;
+        this.email = email;
     }
-    public String getManxb() {
+    public int getManxb() {
         return manxb;
     }
     public String getTennxb() {
@@ -30,7 +30,7 @@ public class NhaXuatBanDTO {
     public String getSdt() {
         return sdt;
     }
-    public void setManxb(String manxb) {
+    public void setManxb(int manxb) {
         this.manxb = manxb;
     }
     public void setDiachinxb(String diachinxb) {
@@ -59,29 +59,29 @@ public class NhaXuatBanDTO {
 
     @Override
     public boolean equals(Object obj){
-        if(this==obj){
+        if(this == obj){
             return true;
         }
-        if(obj==null){
+        if(obj == null){
             return false;
         }
-        if(getClass() !=obj.getClass()){
+        if(getClass() != obj.getClass()){
             return false;
         }
-        final NhaXuatBanDTO other=(NhaXuatBanDTO) obj;
-        if(this.manxb!=other.manxb){
+        final NhaXuatBanDTO other = (NhaXuatBanDTO) obj;
+        if(this.manxb != other.manxb){
             return false;
         }
-        if(this.tennxb!=other.tennxb){
+        if(!Objects.equals(this.tennxb, other.tennxb)){
             return false;
         }
-        if(this.sdt!=other.sdt){
+        if(!Objects.equals(this.sdt, other.sdt)){
             return false;
         }
-        if(this.diachinxb!=other.diachinxb){
+        if(!Objects.equals(this.diachinxb, other.diachinxb)){
             return false;
         }
-        if(this.email!=other.email){
+        if(!Objects.equals(this.email, other.email)){
             return false;
         }
         return true;
@@ -89,6 +89,6 @@ public class NhaXuatBanDTO {
 
     @Override
     public String toString(){
-        return "NhanXuatBanDTO{ manxb="+manxb+", tennxb="+tennxb+", sdt="+sdt+", diachinxb="+diachinxb+", email="+email +"}";
+        return "NhaXuatBanDTO{ manxb=" + manxb + ", tennxb=" + tennxb + ", sdt=" + sdt + ", diachinxb=" + diachinxb + ", email=" + email + "}";
     }
 }
