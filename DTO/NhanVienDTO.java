@@ -10,11 +10,10 @@ public class NhanVienDTO{
     private String sdt;
     private int trangthai;
     private Date ngaysinh;
-    private Date ngayvaolam;
 
     public NhanVienDTO(){}
 
-    public NhanVienDTO(String manv,String honv,String tennv, String gioitinh, String sdt, int trangthai, Date ngaysinh, Date ngayvaolam){
+    public NhanVienDTO(String manv,String honv,String tennv, String gioitinh, String sdt, int trangthai, Date ngaysinh){
         this.manv=manv;
         this.honv=honv;
         this.tennv=tennv;
@@ -22,9 +21,8 @@ public class NhanVienDTO{
         this.sdt=sdt;
         this.trangthai=trangthai;
         this.ngaysinh=ngaysinh;
-        this.ngayvaolam=ngayvaolam;
-    }
 
+    }
     public String getManv() {
         return manv;
     }
@@ -40,9 +38,7 @@ public class NhanVienDTO{
     public Date getNgaysinh() {
         return ngaysinh;
     }
-    public Date getNgayvaolam() {
-        return ngayvaolam;
-    }
+
     public String getSdt() {
         return sdt;
     }
@@ -64,9 +60,7 @@ public class NhanVienDTO{
     public void setNgaysinh(Date ngaysinh) {
         this.ngaysinh = ngaysinh;
     }
-    public void setNgayvaolam(Date ngayvaolam) {
-        this.ngayvaolam = ngayvaolam;
-    }
+
     public void setSdt(String sdt) {
         this.sdt = sdt;
     }
@@ -85,7 +79,6 @@ public class NhanVienDTO{
         result=prime*result+Objects.hash(sdt);
         result=prime*result+trangthai;
         result=prime*result+Objects.hash(ngaysinh);
-        result=prime*result+Objects.hash(ngayvaolam);
         return result;
     }
 
@@ -122,17 +115,14 @@ public class NhanVienDTO{
         if(this.ngaysinh !=other.ngaysinh){
             return false;
         }
-        if(this.ngayvaolam !=other.ngayvaolam){
-            return false;
-        }
+
         return true;
     }
-
     @Override 
     public String toString(){
-        return "NhanVienDTO{ " + "manv=" + manv + ", hoten=" + honv + " " + tennv + ", gioitinh=" + gioitinh + ", ngaysinh=" + ngaysinh +", SDT="+sdt +", ngayvaolam= "+ngayvaolam+", trangthai="+trangthai+'}';
+        return "NhanVienDTO{ " + "manv=" + manv + ", hoten=" + honv + " " + tennv + ", gioitinh=" + gioitinh + ", ngaysinh=" + ngaysinh +", SDT="+sdt+", trangthai="+trangthai+'}';
     }
-    public int getColumnCount() {
-        return getClass().getDeclaredFields().length;
-    }
+    // public int getColumnCount() {
+    //     return getClass().getDeclaredFields().length;
+    // }
 }
