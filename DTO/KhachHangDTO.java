@@ -6,15 +6,17 @@ public class KhachHangDTO {
     private int makh;
     private String hokh;
     private String tenkh;
+    private String email;
     private Date ngaysinh;
     private String sdt;
     
     public KhachHangDTO() {}
 
-    public KhachHangDTO(int makh, String hokh, String tenkh, Date ngaysinh, String sdt) {
+    public KhachHangDTO(int makh, String hokh, String tenkh, String email, Date ngaysinh, String sdt) {
         this.makh = makh;
         this.hokh = hokh;
         this.tenkh = tenkh;
+        this.email = email;
         this.ngaysinh = ngaysinh;
         this.sdt = sdt;
     }
@@ -43,6 +45,13 @@ public class KhachHangDTO {
         this.tenkh = tenkh;
     }
 
+    public String getemail() {
+        return email;
+    }
+
+    public void setemail(String email) {
+        this.email = email;
+    }
 
     public Date getNgaysinh() {
         return ngaysinh;
@@ -62,7 +71,7 @@ public class KhachHangDTO {
 
     @Override
     public int hashCode() {
-        return Objects.hash(makh, hokh, tenkh, ngaysinh, sdt);
+        return Objects.hash(makh, hokh, tenkh, email, ngaysinh, sdt);
     }
 
     @Override
@@ -77,6 +86,7 @@ public class KhachHangDTO {
         return this.makh == other.makh &&
                Objects.equals(this.hokh, other.hokh) &&
                Objects.equals(this.tenkh, other.tenkh) &&
+               Objects.equals(this.email, other.email) &&
                Objects.equals(this.ngaysinh, other.ngaysinh) &&
                Objects.equals(this.sdt, other.sdt);
     }
@@ -86,6 +96,7 @@ public class KhachHangDTO {
         return "KhachHangDTO{" +
                 "makh=" + makh +
                 ", hoten='" + hokh + " " + tenkh + '\'' +
+                ", email='" + email + '\'' +
                 ", sdt='" + sdt + '\'' +
                 ", ngaysinh=" + ngaysinh +
                 '}';
