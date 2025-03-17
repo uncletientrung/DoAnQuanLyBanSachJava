@@ -8,7 +8,7 @@ public class PhieuXuatDTO extends PhieuDTO {
         this.makh = makh;
     }
 
-    public PhieuXuatDTO(int makh, int maphieu, String manv, Timestamp thoigiantao, long tongTien, int trangthai) {
+    public PhieuXuatDTO(int makh, int maphieu, int manv, Timestamp thoigiantao, long tongTien, int trangthai) {
         super(maphieu, manv, thoigiantao, tongTien, trangthai);
         this.makh = makh;
     }

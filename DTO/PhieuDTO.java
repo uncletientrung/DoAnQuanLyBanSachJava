@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class PhieuDTO {
     private int maphieu;
-    private String manv;
+    private int manv;
     private Timestamp thoigiantao;
     private long tongtien;
     private int trangthai;
@@ -13,7 +13,7 @@ public class PhieuDTO {
     public PhieuDTO() {
     }
 
-    public PhieuDTO(int maphieu, String manv, Timestamp thoigiantao, long tongtien, int trangthai) {
+    public PhieuDTO(int maphieu, int manv, Timestamp thoigiantao, long tongtien, int trangthai) {
         this.maphieu = maphieu;
         this.manv = manv;
         this.thoigiantao = thoigiantao;
@@ -29,11 +29,11 @@ public class PhieuDTO {
         this.maphieu = maphieu;
     }
 
-    public String getManv() {
+    public int getManv() {
         return manv;
     }
 
-    public void setManv(String manv) {
+    public void setManv(int manv) {
         this.manv = manv;
     }
 
@@ -76,7 +76,7 @@ public class PhieuDTO {
         }
         final PhieuDTO other = (PhieuDTO) obj;
         return this.maphieu == other.maphieu &&
-               Objects.equals(this.manv, other.manv) &&
+               this.manv==other.manv &&
                this.tongtien == other.tongtien &&
                this.trangthai == other.trangthai &&
                Objects.equals(this.thoigiantao, other.thoigiantao);

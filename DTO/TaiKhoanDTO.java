@@ -2,15 +2,14 @@ package DTO;
 import java.util.Objects;
 
 public class TaiKhoanDTO {
-    private String manv;
+    private int manv;
     private String username;
     private String matkhau;
     private int manhomquyen;
     private int trangthai;
-
     public TaiKhoanDTO() {}
 
-    public TaiKhoanDTO(String manv, String username, String matkhau, int manhomquyen, int trangthai) {
+    public TaiKhoanDTO(int manv, String username, String matkhau, int manhomquyen, int trangthai) {
         this.manv = manv;
         this.username = username;
         this.matkhau = matkhau;
@@ -18,11 +17,11 @@ public class TaiKhoanDTO {
         this.trangthai = trangthai;
     }
 
-    public String getManv() {
+    public int getManv() {
         return manv;
     }
 
-    public void setManv(String manv) {
+    public void setManv(int manv) {
         this.manv = manv;
     }
 
@@ -60,13 +59,7 @@ public class TaiKhoanDTO {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 19 * hash + Objects.hashCode(this.manv);
-        hash = 19 * hash + Objects.hashCode(this.username);
-        hash = 19 * hash + Objects.hashCode(this.matkhau);
-        hash = 19 * hash + this.manhomquyen;
-        hash = 19 * hash + this.trangthai;
-        return hash;
+        return Objects.hash(manv, username, matkhau, manhomquyen, trangthai);
     }
 
     @Override
@@ -78,11 +71,11 @@ public class TaiKhoanDTO {
             return false;
         }
         final TaiKhoanDTO other = (TaiKhoanDTO) obj;
-        return Objects.equals(this.manv, other.manv) &&
-               Objects.equals(this.username, other.username) &&
-               Objects.equals(this.matkhau, other.matkhau) &&
+        return this.manv == other.manv &&
                this.manhomquyen == other.manhomquyen &&
-               this.trangthai == other.trangthai;
+               this.trangthai == other.trangthai &&
+               Objects.equals(this.username, other.username) &&
+               Objects.equals(this.matkhau, other.matkhau);
     }
 
     @Override

@@ -2,8 +2,8 @@ package DTO;
 import java.util.Date;
 import java.util.Objects;
 
-public class NhanVienDTO{
-    private String manv;
+public class NhanVienDTO {
+    private int manv;
     private String honv;
     private String tennv;
     private String gioitinh;
@@ -11,118 +11,99 @@ public class NhanVienDTO{
     private int trangthai;
     private Date ngaysinh;
 
-    public NhanVienDTO(){}
+    public NhanVienDTO() {}
 
-    public NhanVienDTO(String manv,String honv,String tennv, String gioitinh, String sdt, int trangthai, Date ngaysinh){
-        this.manv=manv;
-        this.honv=honv;
-        this.tennv=tennv;
-        this.gioitinh=gioitinh;
-        this.sdt=sdt;
-        this.trangthai=trangthai;
-        this.ngaysinh=ngaysinh;
-
+    public NhanVienDTO(int manv, String honv, String tennv, String gioitinh, String sdt, int trangthai, Date ngaysinh) {
+        this.manv = manv;
+        this.honv = honv;
+        this.tennv = tennv;
+        this.gioitinh = gioitinh;
+        this.sdt = sdt;
+        this.trangthai = trangthai;
+        this.ngaysinh = ngaysinh;
     }
-    public String getManv() {
+
+    public int getManv() {
         return manv;
     }
+
+    public void setManv(int manv) {
+        this.manv = manv;
+    }
+
     public String getHonv() {
         return honv;
     }
+
+    public void setHonv(String honv) {
+        this.honv = honv;
+    }
+
     public String getTennv() {
         return tennv;
     }
+
+    public void setTennv(String tennv) {
+        this.tennv = tennv;
+    }
+
     public String getGioitinh() {
         return gioitinh;
     }
+
+    public void setGioitinh(String gioitinh) {
+        this.gioitinh = gioitinh;
+    }
+
     public Date getNgaysinh() {
         return ngaysinh;
+    }
+
+    public void setNgaysinh(Date ngaysinh) {
+        this.ngaysinh = ngaysinh;
     }
 
     public String getSdt() {
         return sdt;
     }
-    public int getTrangthai() {
-        return trangthai;
-    }
-    public void setManv(String manv) {
-        this.manv = manv;
-    }
-    public void setHonv(String honv) {
-        this.honv = honv;
-    }
-    public void setTennv(String tennv) {
-        this.tennv = tennv;
-    }
-    public void setGioitinh(String gioitinh) {
-        this.gioitinh = gioitinh;
-    }
-    public void setNgaysinh(Date ngaysinh) {
-        this.ngaysinh = ngaysinh;
-    }
 
     public void setSdt(String sdt) {
         this.sdt = sdt;
     }
+
+    public int getTrangthai() {
+        return trangthai;
+    }
+
     public void setTrangthai(int trangthai) {
         this.trangthai = trangthai;
     }
 
-    @Override 
-    public int hashCode(){
-        final int prime=31;
-        int result=1;
-        result=prime*result+Objects.hash(manv);
-        result=prime*result+Objects.hash(honv);
-        result=prime*result+Objects.hash(tennv);
-        result=prime*result+Objects.hash(gioitinh);
-        result=prime*result+Objects.hash(sdt);
-        result=prime*result+trangthai;
-        result=prime*result+Objects.hash(ngaysinh);
-        return result;
+    @Override
+    public int hashCode() {
+        return Objects.hash(manv, honv, tennv, gioitinh, sdt, trangthai, ngaysinh);
     }
 
     @Override
-    public boolean equals(Object obj){
-        if(this==obj){
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
         }
-        if(obj==null){
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        if(getClass() !=obj.getClass()){
-            return false;
-        }
-        final NhanVienDTO other=(NhanVienDTO) obj;
-        if(this.manv !=other.manv){
-            return false;
-        }
-        if(this.honv !=other.honv){
-            return false;
-        }
-        if(this.tennv !=other.tennv){
-            return false;
-        }
-        if(this.gioitinh !=other.gioitinh){
-            return false;
-        }
-        if(this.sdt !=other.sdt){
-            return false;
-        }
-        if(this.trangthai !=other.trangthai){
-            return false;
-        }
-        if(this.ngaysinh !=other.ngaysinh){
-            return false;
-        }
+        final NhanVienDTO other = (NhanVienDTO) obj;
+        return this.manv == other.manv &&
+               this.trangthai == other.trangthai &&
+               Objects.equals(this.honv, other.honv) &&
+               Objects.equals(this.tennv, other.tennv) &&
+               Objects.equals(this.gioitinh, other.gioitinh) &&
+               Objects.equals(this.sdt, other.sdt) &&
+               Objects.equals(this.ngaysinh, other.ngaysinh);
+    }
 
-        return true;
+    @Override
+    public String toString() {
+        return "NhanVienDTO{ " + "manv=" + manv + ", hoten=" + honv + " " + tennv + ", gioitinh=" + gioitinh + ", ngaysinh=" + ngaysinh + ", SDT=" + sdt + ", trangthai=" + trangthai + " }";
     }
-    @Override 
-    public String toString(){
-        return "NhanVienDTO{ " + "manv=" + manv + ", hoten=" + honv + " " + tennv + ", gioitinh=" + gioitinh + ", ngaysinh=" + ngaysinh +", SDT="+sdt+", trangthai="+trangthai+'}';
-    }
-    // public int getColumnCount() {
-    //     return getClass().getDeclaredFields().length;
-    // }
 }

@@ -4,17 +4,16 @@ import java.util.Objects;
 
 public class KhuyenMaiDTO {
     private int maKM;
-    private String TenChuongTrinh, LoaiChuongTrinh,
+    private String TenChuongTrinh,
             NgayBatDau, NgayKetThuc;
 
     public KhuyenMaiDTO() {
     }
 
-    public KhuyenMaiDTO(int maKM, String TenChuongTrinh, String LoaiChuongTrinh, 
+    public KhuyenMaiDTO(int maKM, String TenChuongTrinh,
                         String NgayBatDau, String NgayKetThuc) {
         this.maKM = maKM;
         this.TenChuongTrinh = TenChuongTrinh;
-        this.LoaiChuongTrinh = LoaiChuongTrinh;
         this.NgayBatDau = NgayBatDau;
         this.NgayKetThuc = NgayKetThuc;
     }
@@ -35,13 +34,7 @@ public class KhuyenMaiDTO {
         this.TenChuongTrinh = TenChuongTrinh;
     }
 
-    public String getLoaiChuongTrinh() {
-        return LoaiChuongTrinh;
-    }
 
-    public void setLoaiChuongTrinh(String LoaiChuongTrinh) {
-        this.LoaiChuongTrinh = LoaiChuongTrinh;
-    }
 
     public String getNgayBatDau() {
         return NgayBatDau;
@@ -61,7 +54,7 @@ public class KhuyenMaiDTO {
 
     @Override
     public int hashCode() {
-        return Objects.hash(maKM, TenChuongTrinh, LoaiChuongTrinh, NgayBatDau, NgayKetThuc);
+        return Objects.hash(maKM, TenChuongTrinh, NgayBatDau, NgayKetThuc);
     }
 
     @Override
@@ -75,7 +68,6 @@ public class KhuyenMaiDTO {
         final KhuyenMaiDTO other = (KhuyenMaiDTO) obj;
         return this.maKM == other.maKM &&
                Objects.equals(this.TenChuongTrinh, other.TenChuongTrinh) &&
-               Objects.equals(this.LoaiChuongTrinh, other.LoaiChuongTrinh) &&
                Objects.equals(this.NgayBatDau, other.NgayBatDau) &&
                Objects.equals(this.NgayKetThuc, other.NgayKetThuc);
     }
@@ -85,7 +77,6 @@ public class KhuyenMaiDTO {
         return "KhuyenMaiDTO{" +
                 "maKM=" + maKM +
                 ", TenChuongTrinh='" + TenChuongTrinh + '\'' +
-                ", LoaiChuongTrinh='" + LoaiChuongTrinh + '\'' +
                 ", NgayBatDau='" + NgayBatDau + '\'' +
                 ", NgayKetThuc='" + NgayKetThuc + '\'' +
                 '}';
