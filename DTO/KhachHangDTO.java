@@ -6,17 +6,15 @@ public class KhachHangDTO {
     private int makh;
     private String hokh;
     private String tenkh;
-    private String gioitinh;
     private Date ngaysinh;
     private String sdt;
     
     public KhachHangDTO() {}
 
-    public KhachHangDTO(int makh, String hokh, String tenkh, String gioitinh, Date ngaysinh, String sdt) {
+    public KhachHangDTO(int makh, String hokh, String tenkh, Date ngaysinh, String sdt) {
         this.makh = makh;
         this.hokh = hokh;
         this.tenkh = tenkh;
-        this.gioitinh = gioitinh;
         this.ngaysinh = ngaysinh;
         this.sdt = sdt;
     }
@@ -45,13 +43,6 @@ public class KhachHangDTO {
         this.tenkh = tenkh;
     }
 
-    public String getGioitinh() {
-        return gioitinh;
-    }
-
-    public void setGioitinh(String gioitinh) {
-        this.gioitinh = gioitinh;
-    }
 
     public Date getNgaysinh() {
         return ngaysinh;
@@ -71,7 +62,7 @@ public class KhachHangDTO {
 
     @Override
     public int hashCode() {
-        return Objects.hash(makh, hokh, tenkh, gioitinh, ngaysinh, sdt);
+        return Objects.hash(makh, hokh, tenkh, ngaysinh, sdt);
     }
 
     @Override
@@ -86,7 +77,6 @@ public class KhachHangDTO {
         return this.makh == other.makh &&
                Objects.equals(this.hokh, other.hokh) &&
                Objects.equals(this.tenkh, other.tenkh) &&
-               Objects.equals(this.gioitinh, other.gioitinh) &&
                Objects.equals(this.ngaysinh, other.ngaysinh) &&
                Objects.equals(this.sdt, other.sdt);
     }
@@ -96,7 +86,6 @@ public class KhachHangDTO {
         return "KhachHangDTO{" +
                 "makh=" + makh +
                 ", hoten='" + hokh + " " + tenkh + '\'' +
-                ", gioitinh='" + gioitinh + '\'' +
                 ", sdt='" + sdt + '\'' +
                 ", ngaysinh=" + ngaysinh +
                 '}';
