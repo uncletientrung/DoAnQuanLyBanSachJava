@@ -4,16 +4,19 @@
  */
 package GUI.View;
 
+import BUS.TaiKhoanBUS;
+import GUI.Controller.TaiKhoanController;
 import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 /**
  *
  * @author DELL
  */
 public class Taikhoan extends JFrame{
-    private JTextField usernameField;
-    private JPasswordField passwordField;
+    public JTextField usernameField;
+    public JPasswordField passwordField;
     public Taikhoan(){
         this.init();
         this.setVisible(true);
@@ -36,8 +39,8 @@ public class Taikhoan extends JFrame{
         passwordField = new JPasswordField(15);
 
         // Tạo các nút
-        JButton lbsubmit = new JButton("Submit");
-        JButton lbreset = new JButton("Reset");
+        JButton btsubmit = new JButton("Submit");
+        JButton btreset = new JButton("Reset");
 
         // Căn giữa các thành phần
         JPanel panelInput = new JPanel(new GridLayout(2, 2, 10, 10));
@@ -49,17 +52,20 @@ public class Taikhoan extends JFrame{
 
         // Chỉnh layout cho nút
         JPanel panelButton = new JPanel();
-        panelButton.add(lbsubmit);
-        panelButton.add(lbreset);
+        panelButton.add(btsubmit);
+        panelButton.add(btreset);
 
         // Thêm các thành phần vào frame
         setLayout(new BorderLayout(10, 10));
         add(lbtitle, BorderLayout.NORTH);
         add(panelInput, BorderLayout.CENTER);
         add(panelButton, BorderLayout.SOUTH);
-    }
-
+        ActionListener action =new TaiKhoanController(this);
+        btsubmit.addActionListener(action);
+        btreset.addActionListener(action);
         
-        
     }
+   
+        
 }
+
