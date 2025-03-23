@@ -4,14 +4,20 @@
  */
 package GUI;
 
+import GUI.Controller.WorkFrameController;
+import GUI.View.BookPanel;
+import GUI.View.HomePanel;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author DELL
  */
 public class WorkFrame extends JFrame{
+    public CardLayout cardLayout=new CardLayout();
+    public JPanel PanelCard=new JPanel(cardLayout);
     public WorkFrame(){
         this.init();
         this.setVisible(true);
@@ -35,8 +41,9 @@ public class WorkFrame extends JFrame{
         userInfoPanel.setBackground(new Color(230, 240, 250)); // Màu nền giống sidebar
 
         // Avatar
-        JLabel avatarLabel = new JLabel(new ImageIcon("avatar-default-icon.png")); // Thay thế bằng đường dẫn hình ảnh thực tế
-        avatarLabel.setPreferredSize(new Dimension(60, 60)); // Đặt kích thước cho avatar
+        JLabel avatarLabel = new JLabel(new ImageIcon(getClass().getResource("/GUI/Image/avatar-default-icon.png")));
+                                                                             // Thay thế bằng đường dẫn hình ảnh thực tế
+        avatarLabel.setPreferredSize(new Dimension(80, 80)); // Đặt kích thước cho avatar
 
         // Panel chứa tên và vai trò
         JPanel textPanel = new JPanel();
@@ -59,7 +66,7 @@ public class WorkFrame extends JFrame{
 
         // Thêm userInfoPanel vào sidebar
         sidebar.add(Box.createVerticalStrut(20)); // Khoảng cách phía trên
-        sidebar.add(userInfoPanel);
+        sidebar.add(userInfoPanel);                   // Thêm phần thông tin người dùng
         sidebar.add(Box.createVerticalStrut(20)); // Khoảng cách giữa thông tin người dùng và menu
 
         // Menu items (viết từng mục riêng lẻ)
@@ -98,26 +105,20 @@ public class WorkFrame extends JFrame{
         sidebar.add(Box.createVerticalStrut(5));
         sidebar.add(btnKhuyenMai);
 
-        // Tạo panel cho phần Center với background là hình ảnh
-        JPanel centerPanel = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                // Load hình ảnh từ đường dẫn
-                ImageIcon imageIcon = new ImageIcon("background.png"); // Thay thế bằng đường dẫn hình ảnh thực tế
-                Image image = imageIcon.getImage();
-                // Vẽ hình ảnh lên panel
-                g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
-            }
-        };
-        centerPanel.setLayout(new BorderLayout()); // Sử dụng BorderLayout cho centerPanel
+        // Thêm các Panel hay các Card vào PanelCard 
+        PanelCard.add(new HomePanel(),"Trang chủ");
+        PanelCard.add(new BookPanel(),"Sách");
 
         // Adding sidebar và centerPanel vào main panel
         mainPanel.add(sidebar, BorderLayout.WEST);
-        mainPanel.add(centerPanel, BorderLayout.CENTER);
+        mainPanel.add(PanelCard, BorderLayout.CENTER);
 
         // Adding main panel to frame
         add(mainPanel);
+        
+        ActionListener action= new WorkFrameController(this);
+        btnSach.addActionListener(action);
+        btnTrangChu.addActionListener(action);
     }
 
     // Phương thức tạo nút menu với kích thước và căn chỉnh phù hợp
