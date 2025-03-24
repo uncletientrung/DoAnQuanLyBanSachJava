@@ -10,12 +10,17 @@ import javax.swing.table.*;
 import BUS.SachBUS;
 import DTO.SachDTO;
 import DAO.SachDAO;
+import GUI.WorkFrame;
+import GUI.Controller.BookController;
 import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 /**
  *
  * @author DELL
  */
 public class BookPanel extends JPanel{
+    private WorkFrame workFrame;
     public ArrayList<SachDTO> listSach=new SachBUS().getSachAll();
     public BookPanel(){
         // Tạo Panel toolBar cho thanh công cụ trên cùng
@@ -98,6 +103,10 @@ public class BookPanel extends JPanel{
         setLayout(new BorderLayout());
         add(toolBar,BorderLayout.NORTH);
         add(SPBook,BorderLayout.CENTER);
+        
+        // Thêm sự kiện cho nút
+        ActionListener action= new BookController(this,workFrame);
+        btnAdd.addActionListener(action);
         
     }
 
