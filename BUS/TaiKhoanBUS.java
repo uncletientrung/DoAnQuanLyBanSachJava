@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author DELL
  */
-public class TaiKhoanBUS {
+public class TaiKhoanBUS{
     private final ArrayList<TaiKhoanDTO> listTaiKhoan;
     public TaiKhoanBUS(){
         this.listTaiKhoan =TaiKhoanDAO.getInstance().selectAll();

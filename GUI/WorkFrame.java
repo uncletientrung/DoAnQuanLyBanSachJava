@@ -130,6 +130,8 @@ public class WorkFrame extends JFrame{
         button.setFont(new Font("Arial", Font.PLAIN, 14)); // Đặt font chữ
         button.setBackground(new Color(240, 240, 240)); // Màu nền nhẹ
         button.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20)); // Padding cho nút
+        button.setFocusPainted(false); // Bỏ viền khi click
+        button.setBorderPainted(false); // Ẩn viền nút
         return button;
     }
 }
